@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace Pushpay
 {
@@ -21,15 +20,14 @@ namespace Pushpay
 
             while (true)
             {
-                Console.WriteLine("\nEnter text or \"Q\" to Quit:");
+                Console.WriteLine("\nEnter text or \"Quit\" to Quit:");
                 inputString = Console.ReadLine();
 
-                if (inputString == "Q" || inputString == "q") break;
+                if (inputString.ToLower() == "quit") break;
 
                 string result = util.IsPalindrome(inputString) ? " is " : " is not ";
 
                 Console.WriteLine($"{inputString}{result}a palindrome.");
-
             }
         } 
     }
