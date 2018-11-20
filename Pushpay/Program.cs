@@ -4,17 +4,20 @@ namespace Pushpay
 {
     class Program
     {
+        internal static void Check(string inputString, bool shouldBePalindrome)
+        {
+            Console.WriteLine(inputString.IsPalindrome() == shouldBePalindrome ? "pass" : "FAIL");
+        }
+
         static void Main(string[] args)
         {
-            Util util = new Util();
+            Console.WriteLine("Palindrome checks: \n");
 
-            Console.WriteLine("Palindrome Batch Test: \n");
-
-            util.Check("abcba", true);
-            util.Check("abcde", false);
-            util.Check("Mr owl ate my metal worm", true);
-            util.Check("Never Odd Or Even", true);
-            util.Check("Never Even Or Odd", false);
+            Check("abcba", true);
+            Check("abcde", false);
+            Check("Mr owl ate my metal worm", true);
+            Check("Never Odd Or Even", true);
+            Check("Never Even Or Odd", false);
 
             string inputString;
 
@@ -25,9 +28,9 @@ namespace Pushpay
 
                 if (inputString.ToLower() == "quit") break;
 
-                string result = util.IsPalindrome(inputString) ? " is " : " is not ";
+                string result = inputString.IsPalindrome() ? " is " : " is not ";
 
-                Console.WriteLine($"{inputString}{result}a palindrome.");
+                Console.WriteLine($"\"{inputString}\"{result}a palindrome.");
             }
         } 
     }

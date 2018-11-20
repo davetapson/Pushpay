@@ -6,4 +6,8 @@
     <RootNamespace>Pushpay</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Util.cs" />
+  </ItemGroup>
+
 </Project>

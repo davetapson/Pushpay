@@ -3,17 +3,12 @@ using System.Text.RegularExpressions;
 
 namespace Pushpay
 {
-    internal class Util
+    public static class StringExtension
     {
-        internal void Check(string inputString, bool shouldBePalindrome)
+        public static bool IsPalindrome(this string inputString)
         {
-            Console.WriteLine(IsPalindrome(inputString) == shouldBePalindrome ? "pass" : "FAIL");
-        }
-
-        internal bool IsPalindrome(string inputString)
-        {
-            // remove non alphabet chars and set to one case
-            string cleanString = Regex.Replace(inputString, "[^a-zA-Z]", "").ToLower();
+            // remove non-alphabetic chars and set to one case 
+            string cleanString = inputString.AlphabeticOnly().ToLower();
 
             if (string.IsNullOrEmpty(cleanString)) return false;
 
@@ -35,6 +30,11 @@ namespace Pushpay
             string backOfString = reversedString.Substring(0, halfStringLength);
 
             return frontOfString.Equals(backOfString);
+        }
+
+        public static string AlphabeticOnly(this string inputString)
+        {
+            return Regex.Replace(inputString, "[^a-zA-Z]", "");
         }
     }
 }
