@@ -23,7 +23,7 @@ namespace Pushpay
 
             while (true)
             {
-                Console.WriteLine("\nEnter text or \"Quit\" to Quit:");
+                Console.WriteLine("\nEnter text or Quit to quit:");
                 inputString = Console.ReadLine();
 
                 if (inputString.ToLower() == "quit") break;

@@ -5,9 +5,13 @@ namespace Pushpay
 {
     public static class StringExtension
     {
+        /// <summary>
+        /// Checks to see if string is a palindrome;
+        /// </summary>
+        /// <returns>Returns true if the string is a palindrome, else false.</returns>
         public static bool IsPalindrome(this string inputString)
         {
-            // remove non-alphabetic chars and set to one case 
+            // remove non-alphabetic chars and set to same case 
             string cleanString = inputString.AlphabeticOnly().ToLower();
 
             if (string.IsNullOrEmpty(cleanString)) return false;
@@ -32,6 +36,10 @@ namespace Pushpay
             return frontOfString.Equals(backOfString);
         }
 
+        /// <summary>
+        /// Returns a string containing only the alphabetic characters from this string.
+        /// </summary>
+        /// <returns>Returns a string containing only alphabetic characters.</returns>
         public static string AlphabeticOnly(this string inputString)
         {
             return Regex.Replace(inputString, "[^a-zA-Z]", "");
